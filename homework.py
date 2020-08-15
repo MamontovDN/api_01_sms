@@ -36,7 +36,7 @@ def sms_sender(sms_text):
         message = client.messages.create(body=sms_text, from_=from_, to=to_)
         res = message.sid
     except Exception as e:
-        logger.log(e)
+        logger.exception(e)
         res = e
     return res
 
