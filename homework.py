@@ -27,10 +27,10 @@ def get_status(user_id):
 
 
 def sms_sender(sms_text):
-    AUTH_TOKEN = os.getenv("tw_token")
-    ACCOUNT_SID = os.getenv("tw_account_sid")
-    NUMBER_FROM = os.getenv("tw_phone")
-    NUMBER_TO = os.getenv("my_phone")
+    ACCOUNT_SID = os.getenv("ACCOUNT_SID")
+    AUTH_TOKEN = os.getenv("AUTH_TOKEN")
+    NUMBER_FROM = os.getenv("NUMBER_FROM")
+    NUMBER_TO = os.getenv("NUMBER_TO")
     client = Client(ACCOUNT_SID, AUTH_TOKEN)
     message = client.messages.create(body=sms_text, from_=NUMBER_FROM, to=NUMBER_TO)
     return message.sid
