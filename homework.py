@@ -27,18 +27,13 @@ def get_status(user_id):
 
 
 def sms_sender(sms_text):
-    token = os.getenv("tw_token")
-    account_sid = os.getenv("tw_account_sid")
-    from_ = os.getenv("tw_phone")
-    to_ = os.getenv("my_phone")
-    client = Client(account_sid, token)
-    try:
-        message = client.messages.create(body=sms_text, from_=from_, to=to_)
-        res = message.sid
-    except Exception as e:
-        logger.exception(e)
-        res = e
-    return res
+    AUTH_TOKEN = os.getenv("tw_token")
+    ACCOUNT_SID = os.getenv("tw_account_sid")
+    NUMBER_FROM = os.getenv("tw_phone")
+    NUMBER_TO = os.getenv("my_phone")
+    client = Client(ACCOUNT_SID, AUTH_TOKEN)
+    message = client.messages.create(body=sms_text, from_=NUMBER_FROM, to=NUMBER_TO)
+    return message.sid
 
 
 if __name__ == "__main__":
