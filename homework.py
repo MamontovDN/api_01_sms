@@ -10,7 +10,7 @@ load_dotenv()
 
 
 def get_status(user_id):
-    url = "https://api.vk.com/method/users.et"
+    url = "https://api.vk.com/method/users.get"
     params = {
         "user_ids": user_id,
         "v": os.getenv("vk_api_version"),
