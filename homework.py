@@ -32,7 +32,10 @@ def sms_sender(sms_text):
     NUMBER_FROM = os.getenv("NUMBER_FROM")
     NUMBER_TO = os.getenv("NUMBER_TO")
     client = Client(ACCOUNT_SID, AUTH_TOKEN)
-    message = client.messages.create(body=sms_text, from_=NUMBER_FROM, to=NUMBER_TO)
+    message = client.messages.create(
+        body=sms_text,
+        from_=NUMBER_FROM,
+        to=NUMBER_TO)
     return message.sid
 
 
