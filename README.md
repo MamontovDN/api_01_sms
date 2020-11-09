@@ -1,2 +1,2 @@
-# api_01_sms
+# SMS-BOT
 API 01 sms
